@@ -306,3 +306,9 @@ The middleware automatically adds instructions about the standard tools. Your cu
 - When to use sub-agents vs when NOT to use them
 - Guidance on parallel execution
 - Subagent lifecycle (spawn → run → return → reconcile)
+
+## Reference
+
+1. [Tavily](https://www.tavily.com/)
+2. [think tool](https://www.anthropic.com/engineering/claude-think-tool)
+3. [a few prompting techniques for agents](https://youtu.be/XSZP9GhhuAc?si=zowpViL-2j-vI9hA)
