@@ -1,28 +1,10 @@
 # 🧠🤖Deep Agents
 
-Using an LLM to call tools in a loop is the simplest form of an agent. 
-This architecture, however, can yield agents that are “shallow” and fail to plan and act over longer, more complex tasks. 
-
-Applications like “Deep Research”, "Manus", and “Claude Code” have gotten around this limitation by implementing a combination of four things:
-a **planning tool**, **sub agents**, access to a **file system**, and a **detailed prompt**.
-
-<img src="../../deep_agents.png" alt="deep agent" width="600"/>
-
-`deepagents` is a Python package that implements these in a general purpose way so that you can easily create a Deep Agent for your application. For a full overview and quickstart of `deepagents`, the best resource is our [docs](https://docs.langchain.com/oss/python/deepagents/overview).
-
-**Acknowledgements: This project was primarily inspired by Claude Code, and initially was largely an attempt to see what made Claude Code general purpose, and make it even more so.**
-
 ## Installation
 
 ```bash
-# pip
-pip install deepagents
-
-# uv
-uv add deepagents
-
-# poetry
-poetry add deepagents
+uv sync
+source .venv/bin/activate
 ```
 
 ## Usage
@@ -74,8 +56,6 @@ agent = create_deep_agent(
 # Invoke the agent
 result = agent.invoke({"messages": [{"role": "user", "content": "What is langgraph?"}]})
 ```
-
-See [examples/research/research_agent.py](examples/research/research_agent.py) for a more complex example.
 
 The agent created with `create_deep_agent` is just a LangGraph graph - so you can interact with it (streaming, human-in-the-loop, memory, studio)
 in the same way you would any LangGraph agent.
@@ -295,6 +275,7 @@ agent = create_deep_agent(
 ```
 
 ### `interrupt_on`
+
 A common reality for agents is that some tool operations may be sensitive and require human approval before execution. Deep Agents supports human-in-the-loop workflows through LangGraph’s interrupt capabilities. You can configure which tools require approval using a checkpointer.
 
 These tool configs are passed to our prebuilt [HITL middleware](https://docs.langchain.com/oss/python/langchain/middleware#human-in-the-loop) so that the agent pauses execution and waits for feedback from the user before executing configured tools.
@@ -317,7 +298,6 @@ agent = create_deep_agent(
         },
     }
 )
-
 ```
 
 ## Deep Agents Middleware

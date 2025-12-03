@@ -247,8 +247,6 @@ See the [long-term memory documentation](https://docs.langchain.com/oss/python/d
 
 ## Built-in Tools
 
-<img src=".github/images/deepagents_tools.png" alt="deep agent" width="600"/>
-
 Every deep agent created with `create_deep_agent` comes with a standard set of tools:
 
 | Tool Name | Description | Provided By |
