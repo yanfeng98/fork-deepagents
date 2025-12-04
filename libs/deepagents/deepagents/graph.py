@@ -96,7 +96,7 @@ def create_deep_agent(
         A configured deep agent.
     """
     if model is None:
-        model = get_default_model()
+        model: ChatAnthropic = get_default_model()
 
     if (
         model.profile is not None
@@ -104,11 +104,11 @@ def create_deep_agent(
         and "max_input_tokens" in model.profile
         and isinstance(model.profile["max_input_tokens"], int)
     ):
-        trigger = ("fraction", 0.85)
-        keep = ("fraction", 0.10)
+        trigger: tuple[str, int|float] = ("fraction", 0.85)
+        keep: tuple[str, int|float] = ("fraction", 0.10)
     else:
-        trigger = ("tokens", 170000)
-        keep = ("messages", 6)
+        trigger: tuple[str, int] = ("tokens", 170000)
+        keep: tuple[str, int] = ("messages", 6)
 
     deepagent_middleware = [
         TodoListMiddleware(),
